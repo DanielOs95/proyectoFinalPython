@@ -45,10 +45,10 @@ class Pedidos:
     def imprimir_ticket(self, cliente, producto, precio):
 
         ticket_content= (
-            "========== TIQUET DE PEDIDO =========="
+            "****** TIQUET DE PEDIDO *****"
             f"Cliente: {cliente}"
             f"Producto: {producto}"
-            f"Precio: ${precio:.2f}"
+            f"Precio Total: ${precio:.2f}"
             "======================================"
         )
         print(ticket_content)
@@ -60,3 +60,24 @@ class Pedidos:
         except Exception as e:
             print(f"Error guardar el ticket: {e}")
         
+
+
+    def mostrar_pedido(self, numero_pedido):
+        conexion = self.db.abrirConexion()
+        if conexion:
+            try:
+                cursor = conexion.cursor()
+                cursor.execute("SELECT * FROM pedidos WHERE pedido = ?", (numero_pedido,))
+                pedido = cursor.fetchone()
+                if pedido:
+                    return {
+                        'pedido': pedido[0],
+                        'cliente': pedido[1],
+                        'producto': pedido[2],
+                        'precio': pedido[3]
+                    }
+                else:
+                    return None
+            except Exception as e:
+                print(f"Error al consultar pedido: {e}")
+                return None

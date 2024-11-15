@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+
+        <h1>Consulta tu pedido</h1>
+        <form action="">
+            <label for="">Número de Pedido:</label>
+            <input type="text" id="numero_pedido" name="numero_pedido" required>
+            <button>Consultar</button>
+        </form>
+    
+        {% if datos_pedido %}
+        <h2>Detalles del pedido</h2>
+        <ul>
+            <li>Número de Pedido: {{ datos_pedido['pedido'] }}</li>
+            <li>Clientes: {{ datos_pedido['cliente'] }}</li>
+            <li>Productos: {{ datos_pedido['producto'] }}</li>
+            <li>Precio: {{ datos_pedido['precio'] }}</li>
+        </ul>
+    
+        {% elif datos_pedido is not none %}
+    
+        <p>No se encontro el pedido</p>
+        {% endif %}
+        
+    </div>
+</body>
+</html>

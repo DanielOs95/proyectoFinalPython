@@ -34,7 +34,7 @@ def menu_pedidos():
     print('Pedidos: ')
     print('1. Crear Pedido')
     print('2. Cancelar Pedido')
-    print('4. Menu Principal')
+    print('3. Menu Principal')
 
 
 

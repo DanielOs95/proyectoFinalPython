@@ -5,7 +5,7 @@ app = Flask(__name__)
 pedidos_db = Pedidos()
 
 
-
+#aqui se crea la ruta que se usara para que se ejecute junto con el archivo html
 @app.route('/', methods=['GET', 'POST'])
 def consultar_pedido():
     datos_pedido = None

@@ -1,10 +1,10 @@
 from setup_database import BaseDatos
-
+# se crea la clase clientes
 class Clientes:
 
     def __init__(self):
         self.db = BaseDatos()
-
+#se realiza la conexion a la tabla clientes para poder insertar registros 
     def agregar_cliente(self, clave, nombre, direccion, correo_electronico, telefono):
         conexion = self.db.abrirConexion()
         if conexion:
@@ -20,7 +20,7 @@ class Clientes:
                 print(f"Error al agregar cliente: {e}")
             finally:
                 self.db.cerrarConexion(conexion)
-
+# aqui se realiza la conexion con la tabla clientes para eliminar dos de clientes
     def eliminar_cliente(self, clave):
         conexion = self.db.abrirConexion()
         if conexion:
@@ -37,7 +37,7 @@ class Clientes:
             finally:
                 self.db.cerrarConexion(conexion)
     
-
+#aqui se hace la conexion para actualizar datos existentes en la tabla clientes
     def actualizar_cliente(self, clave, nombre=None, direccion=None, correo_electronico=None, telefono=None):
         conexion = self.db.abrirConexion()
         if conexion:
@@ -74,7 +74,4 @@ class Clientes:
                 print(f"Error al actualizar cliente: {e}")
             finally:
                 self.db.cerrarConexion(conexion)
-
-
-
 

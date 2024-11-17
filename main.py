@@ -7,7 +7,7 @@ clientes = Clientes()
 menu = Menu()
 pedidos = Pedidos() 
 
-
+#este es el menu principal el cual se muestra primero
 def menu_principal():
     print('Menu de opciones')
     print('1. Clientes')
@@ -15,21 +15,21 @@ def menu_principal():
     print('3. Pedidos')
     print('4. Salir')
 
-
+#este es el submenu clientes 
 def menu_clientes():
     print('Opciones: ')
     print('1. Agregar Cliente')
     print('2. Eliminar Cliente')
     print('3. Actualizar Cliente')
     print('4. Menu Principal')
-
+#este es el submenu de los productos
 def menu_productos():
     print('Seleccionar Menú: ')
     print('1. Agregar Producto')
     print('2. Eliminar Producto')
     print('3. Actualizar Producto')
     print('4. Menu Principal')
-
+# este es el submenu de pedidos el cual funciona con los submenus clientes y pedidos
 def menu_pedidos():
     print('Pedidos: ')
     print('1. Crear Pedido')
@@ -37,7 +37,7 @@ def menu_pedidos():
     print('3. Menu Principal')
 
 
-
+#esta funcion se encarga de manejar las opciones que se ingresan en el menu principal
 def seleccionar_opcion():
     while True:
         menu_principal()
@@ -56,7 +56,7 @@ def seleccionar_opcion():
             print('ingrese un numero valido')
 
 
-
+#esta funcion maneja las opciones que se ingresa en el submenu clientes
 def gestionar_clientes():
     while True:
         menu_clientes()
@@ -87,7 +87,7 @@ def gestionar_clientes():
         else:
             print('Opcion no valida, intentar otra ves')
 
-
+#esta funcion se encarga de manejar las opciones que se ingresan en el submenu de productos
 def gestionar_menu():
     while True:
         menu_productos()
@@ -113,7 +113,7 @@ def gestionar_menu():
             break
         else:
             print('Ocion no valida, intentar de  nuevo')
-
+# esta funcion se encarga de manejar las opciones que se ingresan en el submenu pedidos
 def gestionar_pedidos():
     while True:
         menu_pedidos()
@@ -134,6 +134,3 @@ def gestionar_pedidos():
 
 
 seleccionar_opcion()
-
-
-

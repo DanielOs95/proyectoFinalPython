@@ -1,11 +1,11 @@
 from setup_database import BaseDatos
 
-
+#se crea la clase menu
 class Menu:
 
     def __init__(self):
         self.sql = BaseDatos()
-
+#aqui se realiza la conexion con la tabla menu para poder insertar registros
     def agregar_producto(self, clave, nombre, precio):
         conexion = self.sql.abrirConexion()
         if conexion:
@@ -21,7 +21,7 @@ class Menu:
                 print(f"Error al agregar producto: {e}")
             finally:
                 self.sql.cerrarConexion(conexion)
-
+#aqui se realiza la conexion con la tabla menu para poder eliminar regitros por medio de su clave unica
     def eliminar_producto(self, clave):
         conexion = self.sql.abrirConexion()
         if conexion:
@@ -38,7 +38,7 @@ class Menu:
             finally:
                 self.sql.cerrarConexion(conexion)
     
-
+#aqui se hace la conexion con la tabla menu para modficar y actualizar registros exixtentes
     def actualizar_producto(self, clave, nombre=None, precio=None):
         conexion = self.sql.abrirConexion()
         if conexion:
@@ -70,9 +70,3 @@ class Menu:
             finally:
                 self.sql.cerrarConexion(conexion)
     
-
-
-
-
-
-

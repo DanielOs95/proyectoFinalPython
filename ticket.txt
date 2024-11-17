@@ -1,1 +1,5 @@
-****** TIQUET DE PEDIDO *****Cliente: 04Producto: 04Precio Total: $80.00======================================
+****** TIQUET DE PEDIDO *****
+Cliente: Roberto Ceron
+Producto: hamburguesa 
+Precio Total: $62.70
+======================================

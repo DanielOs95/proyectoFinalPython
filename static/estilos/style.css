@@ -1,0 +1,52 @@
+body {
+    background-color: aquamarine;
+    text-align: center;
+    margin-top: 80px;
+}
+
+span {
+    background-color: brown;
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+}
+
+form {
+    display: block;
+    text-align: center;
+    align-items: center;
+}
+
+form input {
+    border-radius: 5px;
+    height: 25px;
+    margin-bottom: 20px;
+    border: none;
+}
+
+form button {
+    background-color: rgb(89, 124, 124);
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: rgb(36, 97, 97);
+    transform: scale(1.1);
+}
+
+
+li {
+    list-style: none;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 35%;
+}
+
+h2 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}

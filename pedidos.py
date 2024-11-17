@@ -8,18 +8,35 @@ class Pedidos:
         self.db = BaseDatos()
 
 
-    def crear_pedido(self, cliente, producto, precio):
+    def crear_pedido(self, cliente_select, producto_select):
         conexion = self.db.abrirConexion()
         if conexion:
             try:
                 cursor = conexion.cursor()
+                cursor.execute("SELECT nombre FROM clientes WHERE clave = ?", (cliente_select,))
+                cliente = cursor.fetchone()
+                if not cliente:
+                    print(f"El cliente {cliente_select} no existe")
+                    return
+                
+
+                cursor.execute("SELECT nombre, precio FROM menu WHERE clave = ?", (producto_select,))
+                producto = cursor.fetchone()
+                if not producto:
+                    print(f"El producto {producto_select} no existe")
+                    return
+                
+                producto_nombre, precio = producto
+
                 cursor.execute(
-                    "INSERT INTO pedidos(cliente, producto, precio) VALUES (?, ?, ?)",
-                    (cliente, producto, precio)
+                    "INSERT INTO pedidos (cliente, producto, precio) VALUES (?, ?, ?)", 
+                    (cliente_select, producto_nombre, precio)
                 )
+
                 conexion.commit()
+        
                 print('Pedido creado correctamente. Imprimiendo Ticket...')
-                self.imprimir_ticket(cliente, producto, precio)
+                self.imprimir_ticket(cliente[0], producto_nombre, precio)
             except Exception as e:
                 print(f"Error al crear el pedido: {e}")
             finally:
@@ -45,11 +62,11 @@ class Pedidos:
     def imprimir_ticket(self, cliente, producto, precio):
 
         ticket_content= (
-            "****** TIQUET DE PEDIDO *****"
-            f"Cliente: {cliente}"
-            f"Producto: {producto}"
-            f"Precio Total: ${precio:.2f}"
-            "======================================"
+            "****** TIQUET DE PEDIDO *****\n"
+            f"Cliente: {cliente}\n"
+            f"Producto: {producto}\n"
+            f"Precio Total: ${precio:.2f}\n"
+            "======================================\n"
         )
         print(ticket_content)
 

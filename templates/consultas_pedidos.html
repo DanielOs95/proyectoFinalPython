@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Happy Burger</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/style.css') }}">
+
 </head>
 <body>
     
     <div>
 
-        <h1>Consulta tu pedido</h1>
-        <form action="">
-            <label for="">Número de Pedido:</label>
-            <input type="text" id="numero_pedido" name="numero_pedido" required>
-            <button>Consultar</button>
+        <h1><span>Consulta tu pedido</span></h1>
+        <form action="/" method="post">
+            <label for="numero_pedido">Número de Pedido:</label>
+            <input type="text" id="numero_pedido" name="pedido_numero" placeholder="Ingresar numero de pedido..." required>
+            <br><button>Consultar</button>
         </form>
     
         {% if datos_pedido %}
-        <h2>Detalles del pedido</h2>
+        <h2>Detalles del pedido:</h2>
         <ul>
             <li>Número de Pedido: {{ datos_pedido['pedido'] }}</li>
             <li>Clientes: {{ datos_pedido['cliente'] }}</li>

@@ -122,8 +122,8 @@ def gestionar_pedidos():
         if opcion == 1:
             cliente = input('Ingresa la clave del cliente: ')
             producto = input('Ingresa la clave del producto: ')
-            precio = float(input('Ingresa el precio del producto: '))
-            pedidos.crear_pedido(cliente, producto, precio)
+            #precio = float(input('Ingresa el precio del producto: '))
+            pedidos.crear_pedido(cliente, producto)
         elif opcion == 2:
             pedido_id = int(input('ingresa el id del producto para cancelar: '))
             pedidos.cancelar_pedido(pedido_id)
@@ -133,16 +133,6 @@ def gestionar_pedidos():
             print('opcion no valida, intenta de nuevo')
 
 
-'''def calculo_pedido():
-    producto = input('Ingresa el producto: ')
-    precio = float(input(f"Ingresa el precio del producto {producto}: "))
-    cantidad = int(input(f"Ingresa la cantidad de {producto}: "))
-    total = precio * cantidad
-    print(f"El precio total de {producto} es: ${total:.2f}")'''
-
-
-db = BaseDatos()
-db.crearTablas()
 seleccionar_opcion()
 
 
